@@ -14,21 +14,26 @@ function useData(): UseDataInterface {
   };
 
   useEffect(() => {
-    if (!data) {
-      setIsLoading(true);
+    let isMounted = true;
 
-      fetch("https://mcdonalds.trio.dev/menu", requestOptions)
-        .then((res) => res.json())
-        .then((result) => {
+    setIsLoading(true);
+    fetch("https://mcdonalds.trio.dev/menu", requestOptions)
+      .then((res) => res.json())
+      .then((result) => {
+        if (isMounted) {
           setData(result);
           setIsLoading(false);
-        })
-        .catch((err) => {
-          console.error(err);
-          console.log("Error while fetching data");
-          setIsLoading(false);
-        });
-    }
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        console.log("Error while fetching data");
+        setIsLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return {
