@@ -22,6 +22,7 @@ const MenuList = ({ name, items }: MenuCategoryProps): ReactElement => {
   };
 
   const separatorItem = () => <View style={styles.separator} />;
+  const footerItem = () => <View style={styles.footer} />;
 
   return (
     <View style={styles.container}>
@@ -35,6 +36,7 @@ const MenuList = ({ name, items }: MenuCategoryProps): ReactElement => {
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.name}
         style={styles.list}
+        ListFooterComponent={footerItem}
       />
     </View>
   );
@@ -56,6 +58,9 @@ const styles = StyleSheet.create({
   },
   separator: {
     width: 16,
+  },
+  footer: {
+    width: 60,
   },
 });
 

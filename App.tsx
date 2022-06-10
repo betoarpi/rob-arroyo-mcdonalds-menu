@@ -2,10 +2,10 @@ import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
 import { Inter_400Regular, Inter_700Bold } from "@expo-google-fonts/inter";
+import { StyleSheet, View } from "react-native";
 import { useCallback, useEffect, useState } from "react";
 
 import MainContainer from "./src/components/MainContainer";
-import { View } from "react-native";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState<boolean>(false);
@@ -36,8 +36,14 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+    <View style={styles.container} onLayout={onLayoutRootView}>
       <MainContainer />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

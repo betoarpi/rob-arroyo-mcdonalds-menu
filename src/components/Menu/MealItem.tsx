@@ -1,15 +1,48 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import * as Haptics from "expo-haptics";
 
-import { Inter_100Thin } from "@expo-google-fonts/inter";
+import {
+  Alert,
+  Image,
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useCallback, useState } from "react";
+
+import MealModal from "./MealModal";
 import { MenuMealProps } from "./MenuList";
-import React from "react";
 
-const MealItem = ({ name, url }: MenuMealProps) => {
+const MealItem = (meal: MenuMealProps) => {
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+
+  const { name, url } = meal;
+
+  const handleModal = useCallback((showModal: boolean) => {
+    showModal && Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    setModalVisible(showModal);
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: url }} resizeMode="contain" />
-      <Text>{name}</Text>
-    </View>
+    <>
+      <TouchableOpacity onPress={() => handleModal(true)}>
+        <View style={styles.container}>
+          <Image
+            style={styles.image}
+            source={{ uri: url }}
+            resizeMode="contain"
+          />
+          <Text style={styles.name}>{name}</Text>
+        </View>
+      </TouchableOpacity>
+      <MealModal
+        isModalVisible={modalVisible}
+        onPress={handleModal}
+        meal={meal}
+      />
+    </>
   );
 };
 
