@@ -18,8 +18,8 @@ This is a remote take-home project created in React Native for Trio.dev. The goa
 
 To test this project
 
-1. Install the expo app on your mobile device
-2. Open this link or QR code? 🚧 🚧 🚧 🚧 🚧 🚧 🚧
+1. Install the expo app on your mobile device, or
+2. Open this link: [https://expo.dev/@betoarpi/mcdonalds-menu?serviceType=classic&distribution=expo-go](https://expo.dev/@betoarpi/mcdonalds-menu?serviceType=classic&distribution=expo-go)
 
 ## Running this project localy
 
