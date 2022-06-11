@@ -49,7 +49,6 @@ const MealModal = ({
 
   const handleCloseMenu = () => {
     fadeOut();
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
     setTimeout(() => {
       onPress(!isModalVisible);
@@ -166,7 +165,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   image: {
-    //flex: 1,
     height: 300,
     width: 300,
   },
