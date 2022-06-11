@@ -31,10 +31,10 @@ const Layout = (): ReactElement => {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.containerFlex}>
       <Header size={headerSize} />
       {data?.menus && (
-        <View style={styles.scrollViewContainer}>
+        <View style={styles.containerFlex}>
           <ScrollView
             onScroll={handleScrollThrottled}
             onMomentumScrollEnd={handleScrollEnd}
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     paddingBottom: 200,
     flex: 1,
   },
-  scrollViewContainer: {
+  containerFlex: {
     flex: 1,
   },
   scrollBottomSpace: {
