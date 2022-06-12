@@ -1,5 +1,3 @@
-import * as Haptics from "expo-haptics";
-
 import {
   Animated,
   Image,
@@ -11,7 +9,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { AntDesign } from "@expo/vector-icons";
 import { MenuMealProps } from "./MenuList";
@@ -83,15 +81,15 @@ const MealModal = ({
           <AntDesign name="closecircleo" size={24} color="#bfbfbf" />
         </Pressable>
 
-        <ScrollView style={{ flex: 1 }}>
-          <View style={{ flex: 1 }}>
+        <ScrollView style={styles.containerFlex}>
+          <View style={styles.containerFlex}>
             <Image
               style={styles.image}
               source={{ uri: meal.url }}
               resizeMode="contain"
             />
           </View>
-          <View style={styles.infoContainer}>
+          <View style={styles.containerFlex}>
             <Text style={styles.name}>{meal.name}</Text>
             <View style={styles.price}>
               <Text style={styles.priceText}>${meal.price}</Text>
@@ -133,7 +131,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  infoContainer: {
+  containerFlex: {
     flex: 1,
   },
   name: {
