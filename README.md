@@ -21,6 +21,10 @@ To test this project
 1. Install the expo app on your mobile device
 2. Open this link: [https://expo.dev/@betoarpi/mcdonalds-menu?serviceType=classic&distribution=expo-go](https://expo.dev/@betoarpi/mcdonalds-menu?serviceType=classic&distribution=expo-go)
 
+## Video
+
+Here's a loom video presenting the project: [https://www.loom.com/share/eaf7deb3c8874f7aa3e0da33b68b0246](https://www.loom.com/share/eaf7deb3c8874f7aa3e0da33b68b0246)
+
 ## Running this project locally
 
 If you want to run this project
